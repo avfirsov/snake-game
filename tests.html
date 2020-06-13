@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mocha Tests</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script>
+      mocha.setup('bdd');
+    </script>
+
+    <!-- load code you want to test here -->
+
+    <!-- load your test files here -->
+    <script src="queue.js"></script>
+    <script src="main.js"></script>
+    <script>
+      var assert = chai.assert;
+      const snake = createSnake();
+      describe('Snake.place(4,7)', function () {
+        before(function () {
+          snake.place(4, 7);
+        });
+
+        it('snake.print() equals to [4,7]', function () {
+          assert.deepEqual(snake.print(), [4, 7]);
+        });
+
+        it('snake.move(8) returns 4', function () {
+          assert.equal(snake.move(8), 4);
+        });
+
+        it('snake.move(9) returns 7', function () {
+          assert.equal(snake.move(9), 7);
+        });
+
+        it('snake.feed(10), snake.print() equals [8,9,10]', function () {
+          assert.deepEqual((snake.feed(10), snake.print()), [8, 9, 10]);
+        });
+      });
+
+      mocha.run();
+    </script>
+  </body>
+</html>

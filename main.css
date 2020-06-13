@@ -1,0 +1,36 @@
+body {
+  background: #1e1435;
+}
+
+.game {
+  display: flex;
+  width: 100%;
+  margin: 100px 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.field {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  flex-wrap: wrap;
+  border: 2px solid #2e2146;
+}
+
+.cell {
+  border: 2px solid #2e2146;
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+}
+
+.apple {
+  background-color: #8bfc42;
+}
+
+.snake {
+  background-color: #ff4800;
+}
