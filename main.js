@@ -2,6 +2,8 @@ const LEFT = 'left';
 const RIGHT = 'right';
 const DOWN = 'down';
 const UP = 'up';
+const gameField = document.getElementById('snakeField');
+const settings = { elem: gameField, width: 10, height: 10, speed: 10, speedIncreaseRate: 1, onfinish: null };
 
 const getRadomIntWithinInterval = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -53,8 +55,6 @@ const getInitialSnakeCoords = ({ width, height }) => {
   const tailN = headN + width;
   return [tailN, headN];
 };
-
-//toDo: дописать обработчик нажатий клавиш на клавиатуре и заменить его во всех listener'ah
 
 const createNewGame = ({ elem, width, height, speed, speedIncreaseRate, onfinish }) => {
   const snake = createSnake();
@@ -281,9 +281,7 @@ const placeSnakeToField = (snake, field) => {
   };
 };
 
-const gameField = document.getElementById('snakeField');
-
-const game = createNewGame({
+let game = createNewGame({
   elem: gameField,
   width: 10,
   height: 10,
